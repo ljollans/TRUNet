@@ -1,0 +1,4 @@
+models/*.pth filter=lfs diff=lfs merge=lfs -text
+models/trunet_model.pth filter=lfs diff=lfs merge=lfs -text
+models/localization_model.pth filter=lfs diff=lfs merge=lfs -text
+models/unet_model.pth filter=lfs diff=lfs merge=lfs -text
