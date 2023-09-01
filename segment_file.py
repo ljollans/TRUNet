@@ -37,7 +37,7 @@ from glob import glob
 import pydicom
 import numpy as np
 from TRUNet_network.configs import trunetConfigs
-from TRUNet_network import VisionTransformer3d as TRUNet
+from TRUNet_network.model.ViT import VisionTransformer3d as TRUNet
 import torch
 from monai.networks.nets import UNet as MONAIUNet
 from scipy.ndimage import zoom
