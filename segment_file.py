@@ -30,6 +30,9 @@
 
 # use note: unsure why, but if another instance of python is open sometimes the inference process gets killed!
 
+# usage example:
+# python segment_file.py /Users/emijo30/OneDrive/data/CT_from_mscproj/nifti/pt16/ct_pt16dt8.nii.gz
+
 import os
 import sys
 import nibabel as nib
@@ -260,19 +263,28 @@ if __name__ == "__main__":
 
     args = parser.parse_args()
 
+    imagePath = args.image_path
+    print('loading image from ', imagePath)
+
     if args.unet:
         network = 'unet'
+        print('Inference with the residual UNet model.')
+    else:
+        print('Inference with the TRUNet model.')
+
     if args.gpu or args.cuda:
         device = 'cuda'
-
-    imagePath = args.image_path
+    print('Running on', device)
 
     if args.size is not None:
         resize = True
         imageSize = args.size
+        print('Images will be resized to', imageSize)
 
     if args.saveimg:
         saveImg = True
+        print('Image will be resaved as .nii.gz file')
+
 
     ################################################################################################
     # load the dataset
