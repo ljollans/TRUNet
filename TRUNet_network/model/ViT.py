@@ -21,9 +21,8 @@ def np2th(weights, conv=False):
 
 
 class VisionTransformer3d(nn.Module):
-    def __init__(self, config, img_size=224, num_classes=21843, zero_head=False, vis=False):
+    def __init__(self, config, img_size=224, zero_head=False, vis=False):
         super(VisionTransformer3d, self).__init__()  # defining this as a model in nn
-        self.num_classes = num_classes
         self.classifier = config.classifier
         self.transformer = Transformer3d(config, img_size, vis)
         self.decoder = DecoderCup3d(config)
